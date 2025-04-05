@@ -1,0 +1,34 @@
+
+.sideleft_login {
+    background-color: var(--azul-marinho);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sideright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.sideright_login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sideright_p {
+    font-size: 1.2em;
+    text-align: center;
+    color: var(--azul-marinho);
+}
