@@ -6,10 +6,12 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import style from './style.module.css';
 import { useState } from 'react';
-
+import ModalForgetPassword from './modal';
+import { useRouter, useParams } from 'next/navigation';
 
 export default function Login () {
     const [showPassword, setShowPassword] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     
     const togglePasswordVisibility = () => {
         setShowPassword((prev) => !prev);
@@ -28,8 +30,7 @@ export default function Login () {
                 <Col>
                     <div className={style.sideright}>
                         <p className={style.sideright_p}>
-                            Seja bem-vindo(a) ao Sistema de Gestão <strong>Bivictrus</strong> <br></br>
-                            Preencha abaixo para entrar
+                            Seja bem-vindo(a) ao <br></br>Sistema de Gestão <strong>Bivictrus</strong> <br></br>
                         </p>
                         <Form className={style.sideright_login}>
                             <Col sm="6">
@@ -50,12 +51,15 @@ export default function Login () {
                                     </InputGroup>
                                 </Form.Group>
                             </Col>
+                            <a className="mb-6 cursor-pointer text-blue-600 hover:underline" onClick={() => setShowModal(true)}>Esqueci minha senha</a>
                             <Button variant="primary" type="submit" style={{ width: '50%'}}> Entrar </Button>
                         </Form>
                     </div>
                 </Col>
             </Row>
-            
+            {showModal && (
+                <ModalForgetPassword show={showModal} onClose={() => setShowModal(false)} />
+            )}
         </>
     );
 }

@@ -4,8 +4,7 @@
  * Ano: 2025
  */
 
-import { useEffect } from "react";
-import Login from "./view/Login/login";
+import Login from "./login/page";
 
 export default function Home() {
     return (
