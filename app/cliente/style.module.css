@@ -1,0 +1,86 @@
+
+.aside {
+    background-color: var(--azul-marinho);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.barra_menu {
+    background-color: var(--azul-marinho);
+    color: var(--branco-gelo);
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.barra_menu p {
+    color: var(--branco-gelo);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0.65rem;
+}
+
+.aside_menu{
+    background-color: var(--azul-marinho);
+    height: 100vh;
+    width: 18%;
+    color: var(--branco-gelo);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav_menu ul li a{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--branco-gelo);
+    text-decoration: none;
+    line-height: 50px;
+}
+.nav_menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav_menu ul li a {
+    display: block;
+    padding: 0.5rem 1.8rem;
+    text-decoration: none;
+    color: var(--branco-gelo);
+}
+
+.nav_menu ul li a:hover {
+    font-weight: 600;
+    color: var(--azul-marinho);
+    background-color: var(--azul-claro);
+    text-decoration: none;
+}
+
+.btn_logout{
+    display: flex;
+    gap: .625rem;
+    padding: 0.5rem 1.8rem;
+}
+
+.btn_logout a {
+    color: var(--branco-gelo);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.btn_logout a:hover {
+    font-weight: 600;
+}
+
+.icon_logout {
+    width: 20px;
+}

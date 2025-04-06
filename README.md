@@ -30,8 +30,6 @@ Este projeto é de um sistema de gestão para a empresa Limpeza em Ação - Serv
 Linguagens utilizadas:
 - Nextjs/React com Typescript, Node com Express e banco de dados MYSQL.
 
-## Front-end
-- Para rodar o front-end execute o comando: *npm run dev* e ele abrirá em localhost:3000/
-
-## Back-end
-- Para rodar o back-end execute o comando: *node server.js* e ele abrirá em localhost:5000/
+## Front-end e Back-end
+- O ambiente foi configurado para que o front-end e o back-end funcionem com um único comando: *npm run dev*
+- Comando utilizado para tal configuração: `` npm install concurrently --save-dev``
