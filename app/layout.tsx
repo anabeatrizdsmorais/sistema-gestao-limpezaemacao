@@ -4,32 +4,18 @@ import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Layout from './components/Layout';
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { usePathname } from 'next/navigation';
 
 export const metadata: Metadata = {
-  title: "Bivictrus | Limpeza em Ação - Serviços",
+    title: "Bivictrus | Limpeza em Ação - Serviços",
 };
 
-export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
-  return (
-    <html lang="pt-br">
-      {/* <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
-        {children}
-      </body> */}
-      <body>
-      <Layout>{children}</Layout>
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <html lang="pt-BR">
+            <body> { children } </body>
+        </html>
+    );
 }
 
 //rfce
