@@ -32,3 +32,13 @@
     text-align: center;
     color: var(--azul-marinho);
 }
+
+.borderLogin {
+    background: rgba(255, 255, 255, 0.15); /* transparência */
+    border-radius: 1rem;
+    padding: 2rem 3rem;
+    backdrop-filter: blur(0.652rem); /* o desfoque do "vidro" */
+    -webkit-backdrop-filter: blur(0.652rem); /* para Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0.652rem 3rem 0 rgba(0, 0, 0, 0.37);
+  }
