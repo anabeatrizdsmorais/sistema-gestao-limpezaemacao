@@ -31,6 +31,17 @@ router.post('/login', (req, res) => {
     });
 });
 
+// Logout - limpa o cookie/token/sessão
+router.post('/logout', (req, res) => {
+    // se for JWT com cookie:
+    res.clearCookie('token'); // ou o nome real do cookie
+  
+    // se for sessão (opcional)
+    // req.session.destroy(() => {});
+  
+    res.status(200).json({ message: 'Logout efetuado' });
+  });
+
 //Rota teste
 /* router.get('/', (req, res) => {
     res.send('API funcionando');

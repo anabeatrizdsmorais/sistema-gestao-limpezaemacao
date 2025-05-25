@@ -36,17 +36,9 @@ function Cliente() {
             <div style={{marginLeft: '0.85rem'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                     <p className={style.title}>Clientes</p> 
-                    {/* <Button size='lg' variant="success" title='Cadastrar novo usuário'><Link href="/dashboard/cliente/cadastro">Cadastrar</Link></Button>  */}
-                    {/* <Link 
-  href="/dashboard/cliente/cadastro" 
-  className="btn btn-success btn-lg" 
-  title="Cadastrar novo usuário"
->
-  Cadastrar
-</Link> */}
-<Link href="/dashboard/cliente/cadastro" passHref legacyBehavior>
-  <Button size="lg" variant="success" title="Cadastrar novo usuário">Cadastrar</Button>
-</Link>
+                    <Link href="/dashboard/cliente/cadastro" passHref legacyBehavior>
+                    <Button size="lg" variant="success" title="Cadastrar novo usuário">Cadastrar</Button>
+                    </Link>
                 </div>
                 <hr />
                 <div>

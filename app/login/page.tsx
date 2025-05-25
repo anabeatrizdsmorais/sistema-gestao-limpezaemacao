@@ -54,9 +54,8 @@ export default function Login () {
                     <div className={style.sideleft_login}> 
                         <div> <Image src="/image/logo-la.png" width={300} /> </div> 
                         <p style={{'color': '#fff', 'fontSize': '0.8rem', 'textAlign': 'center'}}>Ipatinga/MG 
-                            <br></br> <a style={{'color': '#fff', 'textDecoration': 'none'}} href='https://wa.me/553172131818'> (31)9 7213-1818 <FontAwesomeIcon icon={faPhone} /></a>
-                            <br></br> adm.limpezaemacao@gmail.com <FontAwesomeIcon icon={faEnvelope} />
-                            <br></br> <small> {currentYear}</small>
+                            <br></br> <a style={{'color': '#fff', 'textDecoration': 'none'}} href='https://wa.me/553172131818'> (31)9 7213-1818 </a>
+                            <br></br> adm.limpezaemacao@gmail.com
                         </p>
                     </div>
                 </Col>
