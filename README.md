@@ -16,7 +16,8 @@ pnpm dev
 bun dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado do front-end.
+Abra [http://localhost:5000/api](http://localhost:5000/api) no seu navegador para ver o resultado do back-end.
 
 ## Saiba mais
 

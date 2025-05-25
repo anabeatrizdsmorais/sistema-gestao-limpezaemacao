@@ -1,13 +1,13 @@
 
 "use client";
 
-import {Container, Row, Col, Form, Button, Image, InputGroup} from 'react-bootstrap';
+import {Container, Row, Col, Form, Button, Image, InputGroup, Toast, ToastContainer} from 'react-bootstrap';
 import { faEnvelope, faEye, faEyeSlash, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import style from './style.module.css';
 import { useState } from 'react';
 import ModalForgetPassword from './modal';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter } from 'next/navigation'; //pq a pasta principal é app. se fosse pages seria next/router
 import axios from 'axios';
 
 export default function Login () {
@@ -16,6 +16,8 @@ export default function Login () {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const currentYear = new Date().getFullYear();
+    const router = useRouter();
+    const [showToast, setShowToast] = useState(false);
     
     const togglePasswordVisibility = () => {
         setShowPassword((prev) => !prev);
@@ -23,21 +25,24 @@ export default function Login () {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-
+       
         try {
-            const response = await axios.post('http://localhost:3000/login', {
-                email,
-                password
-            });
+            const response = await axios.post('http://localhost:5000/api/login', 
+                { email, password },
+                { headers: { 'Content-Type': 'application/json' } }
+            );
 
             if (response.data.token) {
-                // Salvar o token no localStorage, cookie, etc.
-                localStorage.setItemdate('token', response.data.token);
-                alert('Login realizado com sucesso!');
-                // Redirecionar para dashboard, por exemplo
+                localStorage.setItem('token', response.data.token);
+                setShowToast(true);
+
+                // Redireciona após 2 segundos
+                setTimeout(() => {
+                router.push('/dashboard/home');
+                }, 2000);
             }
         } catch (err: any) {
-            alert('Erro ao fazer login: ' + err.response?.data?.message || 'Erro desconhecido');
+            alert('Erro ao fazer login: ' + (err.response?.data?.erro || 'Erro desconhecido'));
         }
     };
 
@@ -63,16 +68,31 @@ export default function Login () {
                             </p>
                             <Form className={style.sideright_login} onSubmit={handleLogin}>
                                 <Col sm="10">
-                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Group className="mb-3">
                                         <Form.Label>E-mail</Form.Label>
-                                        <Form.Control type="email" id="email" placeholder="exemplo@email.com" onChange={(e) => setEmail(e.target.value)}/>
+                                        <Form.Control 
+                                            type="email" 
+                                            id="email"
+                                            name='email'
+                                            value={email}
+                                            placeholder="exemplo@email.com" 
+                                            onChange={(e) => setEmail(e.target.value)}
+                                        />
                                     </Form.Group>
                                 </Col>
                                 <Col sm="10">
-                                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Group className="mb-3">
                                         <Form.Label>Senha</Form.Label>
                                         <InputGroup className="mb-3">
-                                            <Form.Control aria-label="password" id="password" type={showPassword ? 'text' : 'password'} aria-describedby="basic-addon2" onChange={(e) => setPassword(e.target.value)}/>
+                                            <Form.Control 
+                                                aria-label="password" 
+                                                id="password" 
+                                                name='password'
+                                                value={password}
+                                                type={showPassword ? 'text' : 'password'} 
+                                                aria-describedby="basic-addon2" 
+                                                onChange={(e) => setPassword(e.target.value)}
+                                            />
                                             <InputGroup.Text id="basic-addon2" style={{ cursor: 'pointer' }} onClick={togglePasswordVisibility}>
                                                 <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
                                             </InputGroup.Text>
@@ -88,6 +108,28 @@ export default function Login () {
             </Row>
             {showModal && (
                 <ModalForgetPassword show={showModal} onClose={() => setShowModal(false)} />
+            )}
+
+            {showToast && (
+           
+                <ToastContainer
+                    className="p-3"
+                    position='top-end'
+                    style={{ position: 'fixed', top: 20, right: 20, zIndex: 9999 }}
+                >
+                <Toast bg='success' delay={2000} autohide>
+                    <Toast.Header closeButton={true}>
+                    <img
+                        src="holder.js/20x20?text=%20"
+                        className="rounded me-2"
+                        alt=""
+                    />
+                    <strong className="me-auto">Sucesso</strong>
+                    <small>just now</small>
+                    </Toast.Header>
+                    <Toast.Body>Aguarde... Você está entrando no sistema.</Toast.Body>
+                </Toast>
+                </ToastContainer>
             )}
         </>
     );

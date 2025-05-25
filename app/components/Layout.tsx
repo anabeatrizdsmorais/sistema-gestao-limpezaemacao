@@ -12,14 +12,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className={style.layout_container}>
       <aside className={style.aside_menu}>
         <nav className={style.nav_menu}>
-          <img src="/image/logo-la.png" alt="Logo" width={150} style={{ margin: '0 auto' }} />
+          <img src="/image/logo-la.png" alt="Logo" width={100} style={{ margin: '0 auto' }} />
           <ul>
-            <li><Link href="/agenda">Agenda</Link></li>
-            <li><Link href="/financeiro">Financeiro</Link></li>
-            <li><Link href="/cliente">Clientes</Link></li>
-            <li><Link href="/colaboradores">Colaboradores</Link></li>
-            <li><Link href="/fornecedores">Fornecedores</Link></li>
-            <li><Link href="/estoque">Estoque</Link></li>
+            <li><Link href="/dashboard/agenda">Agenda</Link></li>
+            <li><Link href="/dashboard/financeiro">Financeiro</Link></li>
+            <li><Link href="/dashboard/cliente">Clientes</Link></li>
+            <li><Link href="/dashboard/colaboradores">Colaboradores</Link></li>
+            <li><Link href="/dashboard/fornecedores">Fornecedores</Link></li>
+            <li><Link href="/dashboard/estoque">Estoque</Link></li>
+            <li><Link href="/dashboard/usuario">Usuários</Link></li>
           </ul>
         </nav>
         <div className={style.btn_logout}>

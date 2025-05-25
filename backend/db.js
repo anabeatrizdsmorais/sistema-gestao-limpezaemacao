@@ -3,16 +3,17 @@ const mysql = require('mysql2');
 // const fs = require('fs');
 // console.log('.env existe?', fs.existsSync('.env'));
 const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'limpezaemacao_dev',
+});
+/* const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-});
-/* 
-console.log('DB_HOST:', process.env.DB_HOST);
-console.log('DB_USER:', process.env.DB_USER);
-console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
-console.log('DB_NAME:', process.env.DB_NAME); */
+}); */
 
 db.connect((err) => {
   if (err) {

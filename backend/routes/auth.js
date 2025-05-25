@@ -2,11 +2,13 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const db = require('../db');
+// const hash = await bcrypt.hash(senhaPlain, 10);
 
 const router = express.Router();
 
 router.post('/login', (req, res) => {
-    const { email, senha } = req.body;
+    // console.log('Body recebido:', req.body);
+    const { email, password } = req.body;
 
     db.query('SELECT * FROM usuario WHERE email = ?', [email], async (err, results) => {
         if (err) 
@@ -16,16 +18,22 @@ router.post('/login', (req, res) => {
 
         const usuario = results[0];
 
-        const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
-        if (!senhaCorreta) 
+        // const senhaCorreta = await bcrypt.compare(password, usuario.senha);
+        
+        if (password !== usuario.senha) 
             return res.status(401).json({ erro: 'Senha inválida' });
 
         const token = jwt.sign({ id: usuario.id, email: usuario.email }, process.env.JWT_SECRET, {
-        expiresIn: '1d',
+            expiresIn: '1d',
         });
 
         res.json({ token });
     });
 });
+
+//Rota teste
+/* router.get('/', (req, res) => {
+    res.send('API funcionando');
+}); */
 
 module.exports = router;
