@@ -177,3 +177,20 @@
   padding: 20px;
   overflow-y: auto;
 }
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.title h2 {
+  font-weight: 800 !important;
+  color: #4c4c4c;
+}
+
+.title h3 {
+  font-weight: 700 !important;
+  color: #4c4c4c;
+}

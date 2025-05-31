@@ -4,6 +4,9 @@ import { Form, Button, Col, Row } from 'react-bootstrap';
 import style from '../style.module.css';
 import { buscaCep } from '../../../api/buscaCep'
 import { useForm, SubmitHandler } from "react-hook-form"
+import { NavigationMenu } from '@/app/components/NavigationMenu';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 type InputsForm = {
     nome: string,
@@ -21,6 +24,8 @@ type InputsForm = {
     estado_civil: string,
     observacoes: string,
 }
+
+const icone = <FontAwesomeIcon icon={faChevronRight} /> ;
 
 export default function CadastroCliente() {
     const [cep, setCep] = useState('');
@@ -60,19 +65,19 @@ export default function CadastroCliente() {
         const novoCep = watchCep?.replace(/\D/g, '');
         if (novoCep?.length === 8) {
             buscaCep(novoCep).then((data) => {
-            if (data) {
-                setValue("logradouro", data.logradouro);
-                setValue("bairro", data.bairro);
-                setValue("cidade", data.localidade);
-                setValue("uf", data.uf);
-            }
+                if (data) {
+                    setValue("logradouro", data.logradouro);
+                    setValue("bairro", data.bairro);
+                    setValue("cidade", data.localidade);
+                    setValue("uf", data.uf);
+                }
             });
         }
     }, [watchCep]);
 
     return (
         <div>
-            <p className={style.title}>Clientes &gt; Cadastro &gt; Novo cadastro</p>
+            <NavigationMenu sub1='Cliente' sub2='Cadastro' sub3='Novo' icon={icone}></NavigationMenu>
             <hr />
 
             <Form onSubmit={handleSubmit(onSubmit)}>
