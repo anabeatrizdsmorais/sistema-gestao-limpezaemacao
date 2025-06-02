@@ -12,7 +12,7 @@ import axios from 'axios';
 
 type LoginData = {
     email: string;
-    senha: string;
+    password: string;
 };
 
 export default function Login () {
@@ -29,21 +29,17 @@ export default function Login () {
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-       
+        const loginData: LoginData = { email, password };
         try {
             const response = await axios.post('http://localhost:5000/api/login', 
-                { email, password },
+                loginData,
                 { headers: { 'Content-Type': 'application/json' } }
             );
-
+    
             if (response.data.token) {
                 localStorage.setItem('token', response.data.token);
                 setShowToast(true);
-
-                // Redireciona após 2 segundos
-                setTimeout(() => {
-                router.push('/dashboard/home');
-                }, 2000);
+                setTimeout(() => router.push('/dashboard/home'), 2000);
             }
         } catch (err: any) {
             alert('Erro ao fazer login: ' + (err.response?.data?.erro || 'Erro desconhecido'));

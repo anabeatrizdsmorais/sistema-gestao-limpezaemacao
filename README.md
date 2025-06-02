@@ -34,3 +34,6 @@ Linguagens utilizadas:
 ## Front-end e Back-end
 - O ambiente foi configurado para que o front-end e o back-end funcionem com um único comando: *npm run dev*
 - Comando utilizado para tal configuração: `` npm install concurrently --save-dev``
+
+## Link do sistema no VERCEL
+Abra o [https://sistema-gestao-limpezaemacao.vercel.app/](https://sistema-gestao-limpezaemacao.vercel.app/) no seu navegador para ver o resultado da aplicação no Vercel.

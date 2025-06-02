@@ -25,8 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 		<div className={style.layout_container}>
 			<aside className={style.aside_menu}>
 			<nav className={style.nav_menu}>
-				{/* <img src="/image/logo-la.png" alt="Logo" width={100} style={{ margin: '0 auto' }} /> */}
-				<Image src="/image/logo-la.png" alt="Logo" width={100} style={{ margin: '0 auto' }}></Image>
+				<Image src="/image/logo-la.png" alt="Logo" width={100} height={100} style={{ margin: '0 auto' }}></Image>
 				<ul>
 				<li><Link href="/dashboard/agenda">Agenda</Link></li>
 				<li><Link href="/dashboard/financeiro">Financeiro</Link></li>
