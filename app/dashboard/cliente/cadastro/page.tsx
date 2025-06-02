@@ -28,7 +28,7 @@ type InputsForm = {
 const icone = <FontAwesomeIcon icon={faChevronRight} /> ;
 
 export default function CadastroCliente() {
-    const [endereco, setEndereco] = useState({
+    const [endereco] = useState({
         logradouro: '',
         bairro: '',
         localidade: '',
@@ -39,7 +39,7 @@ export default function CadastroCliente() {
         handleSubmit,
         watch,
         setValue,
-        formState: { errors },
+        formState: {  },
     } = useForm<InputsForm>()
     
     const onSubmit: SubmitHandler<InputsForm> = async (data) => {
@@ -119,7 +119,7 @@ export default function CadastroCliente() {
                     <Col>
                         <Form.Group className="mb-3">
                             <Form.Label>CEP <span style={{color: "red", fontWeight: 'bold'}}>*</span></Form.Label>
-                            <Form.Control type="text" id='cep' value={cep} placeholder="xxxxx-xx" {...register("cep")}/>
+                            <Form.Control type="text" id='cep'  placeholder="xxxxx-xx" {...register("cep")}/>
                         </Form.Group>
                     </Col>
                     <Col>

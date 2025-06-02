@@ -10,6 +10,11 @@ import ModalForgetPassword from './modal';
 import { useRouter } from 'next/navigation'; //pq a pasta principal é app. se fosse pages seria next/router
 import axios from 'axios';
 
+type LoginData = {
+    email: string;
+    senha: string;
+};
+
 export default function Login () {
     const [showPassword, setShowPassword] = useState(false);
     const [showModal, setShowModal] = useState(false);

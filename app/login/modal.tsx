@@ -13,7 +13,7 @@ function ModalForgetPassword({ onClose, show }: ModalProps) {
               <Modal.Title>Esqueci minha senha</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-              <p>Para redefinir sua senha, digite seu e-mail abaixo e clique em "Enviar".</p> 
+              <p>Para redefinir sua senha, digite seu e-mail abaixo e clique em &quot;Enviar&quot;.</p> 
 
               <Form>
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
