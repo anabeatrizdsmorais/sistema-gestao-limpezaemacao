@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react'
 import { Form, Button, Col, Row } from 'react-bootstrap';
-import style from '../style.module.css';
+// import style from '../style.module.css';
 import { buscaCep } from '../../../api/buscaCep'
 import { useForm, SubmitHandler } from "react-hook-form"
 import { NavigationMenu } from '@/app/components/NavigationMenu';
@@ -28,7 +28,6 @@ type InputsForm = {
 const icone = <FontAwesomeIcon icon={faChevronRight} /> ;
 
 export default function CadastroCliente() {
-    const [cep, setCep] = useState('');
     const [endereco, setEndereco] = useState({
         logradouro: '',
         bairro: '',
@@ -45,18 +44,18 @@ export default function CadastroCliente() {
     
     const onSubmit: SubmitHandler<InputsForm> = async (data) => {
         try {
-          const response = await fetch('/api/registerClients', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          });
-      
-          if (!response.ok) throw new Error("Erro ao salvar");
-      
-          alert("Cliente cadastrado com sucesso!");
+            const response = await fetch('/api/registerClients', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+        
+            if (!response.ok) throw new Error("Erro ao salvar");
+        
+            alert("Cliente cadastrado com sucesso!");
         } catch (error) {
-          console.error(error);
-          alert("Erro ao cadastrar cliente.");
+            console.error(error);
+            alert("Erro ao cadastrar cliente.");
         }
     };
 

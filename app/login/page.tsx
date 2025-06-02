@@ -1,8 +1,8 @@
 
 "use client";
 
-import {Container, Row, Col, Form, Button, Image, InputGroup, Toast, ToastContainer} from 'react-bootstrap';
-import { faEnvelope, faEye, faEyeSlash, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { Row, Col, Form, Button, Image, InputGroup, Toast, ToastContainer } from 'react-bootstrap';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import style from './style.module.css';
 import { useState } from 'react';
@@ -15,7 +15,6 @@ export default function Login () {
     const [showModal, setShowModal] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const currentYear = new Date().getFullYear();
     const router = useRouter();
     const [showToast, setShowToast] = useState(false);
     
@@ -52,7 +51,7 @@ export default function Login () {
             <Row>
                 <Col sm="4">
                     <div className={style.sideleft_login}> 
-                        <div> <Image src="/image/logo-la.png" width={300} /> </div> 
+                        <div> <Image src="/image/logo-la.png" width={300} alt="Logo"/> </div> 
                         <p style={{'color': '#fff', 'fontSize': '0.8rem', 'textAlign': 'center'}}>Ipatinga/MG 
                             <br></br> <a style={{'color': '#fff', 'textDecoration': 'none'}} href='https://wa.me/553172131818'> (31)9 7213-1818 </a>
                             <br></br> adm.limpezaemacao@gmail.com

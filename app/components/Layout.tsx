@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	const today = new Date();
@@ -24,7 +25,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 		<div className={style.layout_container}>
 			<aside className={style.aside_menu}>
 			<nav className={style.nav_menu}>
-				<img src="/image/logo-la.png" alt="Logo" width={100} style={{ margin: '0 auto' }} />
+				{/* <img src="/image/logo-la.png" alt="Logo" width={100} style={{ margin: '0 auto' }} /> */}
+				<Image src="/image/logo-la.png" alt="Logo" width={100} style={{ margin: '0 auto' }}></Image>
 				<ul>
 				<li><Link href="/dashboard/agenda">Agenda</Link></li>
 				<li><Link href="/dashboard/financeiro">Financeiro</Link></li>

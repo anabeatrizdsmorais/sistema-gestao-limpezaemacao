@@ -4,7 +4,7 @@ import {Table,Button} from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link';
 
 type Cliente = {

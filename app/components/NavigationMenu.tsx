@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react'
 import style from '../styles/layout.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-{/* <FontAwesomeIcon icon={faChevronRight} /> */}
+
 
 export const NavigationMenu = ({sub1, sub2, sub3, icon}: {sub1: string, sub2: string, sub3: string, icon: ReactNode}) => {
     return (
